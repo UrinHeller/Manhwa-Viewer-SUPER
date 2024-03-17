@@ -1,0 +1,32 @@
+[2024-03-17 13:13:17] <extra_autoproviders.AutoProviderPluginMangaNato object at 0x0000023D4E1D8AD0> Loading: SSS-Class Gacha Hunter Chapter 1
+[2024-03-17 13:13:23] Exiting ...
+[2024-03-17 13:15:00] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x000001AB09B04A10> Loading:  Chapter 1
+[2024-03-17 13:15:05] Exiting ...
+[2024-03-17 13:15:15] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x000002003B89F0E0> Loading:  Chapter 1
+[2024-03-17 13:15:18] Exiting ...
+[2024-03-17 13:23:41] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x000002A18EF0FF80> Loading:  Chapter 1
+[2024-03-17 13:23:41] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/BingLogo.png
+[2024-03-17 13:23:41] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/DuckDuckGoLogo.png
+[2024-03-17 13:23:41] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/GoogleLogo.png
+[2024-03-17 13:23:41] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/AsuraToonLogo.png
+[2024-03-17 13:23:41] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/CoffeeMangaLogo.png
+[2024-03-17 13:23:41] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/HariMangaLogo.png
+[2024-03-17 13:23:41] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/MangaNatoLogo.png
+[2024-03-17 13:23:41] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/MangaQueenLogo.png
+[2024-03-17 13:23:41] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/ManhwaClanLogo.png
+[2024-03-17 13:23:41] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/S2MangaLogo.png
+[2024-03-17 13:23:41] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/ZinMangaLogo.png
+[2024-03-17 13:23:45] Exiting ...
+[2024-03-17 13:31:24] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x0000021B0A942F90> Loading:  Chapter 1
+[2024-03-17 13:31:24] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/BingLogo.png
+[2024-03-17 13:31:24] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/DuckDuckGoLogo.png
+[2024-03-17 13:31:24] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/GoogleLogo.png
+[2024-03-17 13:31:24] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/AsuraToonLogo.png
+[2024-03-17 13:31:24] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/CoffeeMangaLogo.png
+[2024-03-17 13:31:24] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/HariMangaLogo.png
+[2024-03-17 13:31:24] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/MangaNatoLogo.png
+[2024-03-17 13:31:24] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/MangaQueenLogo.png
+[2024-03-17 13:31:24] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/ManhwaClanLogo.png
+[2024-03-17 13:31:24] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/S2MangaLogo.png
+[2024-03-17 13:31:24] C:\Users\user_\OneDrive\Desktop\Manhwa_Viewer_1.6.2_ship\./data/ZinMangaLogo.png
+[2024-03-17 13:31:31] Exiting ...
