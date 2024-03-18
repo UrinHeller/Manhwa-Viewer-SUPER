@@ -1,6 +1,7 @@
 # Manhwa-Viewer-1.6.2
  If you want to use ManhwaViewer v1.6.2, just download the latest release (https://github.com/adalfarus/Manhwa-Viewer-1.6.2/releases).
 
+## Bugs
 There is a small bug, where the title doesn't update internally and you need to restart the program. There also is a bug where the task window keeps popping up if the task failed and you close it too quickly, so either wait a bit before clicking the close button or stop the app with the task manager.
 
 ## Compatibility
