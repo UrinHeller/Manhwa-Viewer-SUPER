@@ -1,6 +1,6 @@
 import sys
 import os
 
-os.makedirs('./libs', exist_ok=True)
-sys.path.insert(0, './libs')
+os.makedirs('./_internal/libs', exist_ok=True)
+sys.path.insert(0, './_internal/libs')
 del sys, os

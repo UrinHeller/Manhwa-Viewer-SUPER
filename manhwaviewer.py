@@ -429,7 +429,7 @@ class ManhwaViewer(QMainWindow):
                 if release["versionNumber"] == newest_version:
                     newest_version_data = release
             push = newest_version_data["push"].title() == "True"
-            current_version = "1.6.2"
+            current_version = "1.6.2a"
             found_version = None
 
             # Find a version bigger than the current version and prioritize versions with push
@@ -522,11 +522,11 @@ class ManhwaViewer(QMainWindow):
         self.system = System()
         self.theme = ""
 
-        theme = self.system.get_windows_theme()
-        if type(theme) is str and theme.lower() != self.theme:
-            self.update_theme()
+        theme = self.system.get_windows_theme() or os.environ.get('MV_THEME') or "light"
+        if theme.lower() != self.theme:
+            self.update_theme(theme.lower())
 
-        self.setWindowTitle('Manhwa Viewer 1.6.2')
+        self.setWindowTitle('Manhwa Viewer 1.6.2a')
         self.setWindowIcon(QIcon(f'{self.data_folder}Untitled-1-noBackground.png'))
 
         db_path = f"{self.data_folder}data.db"
@@ -876,7 +876,7 @@ class ManhwaViewer(QMainWindow):
 
     def reload_window_title(self):
         new_title = ' '.join(word[0].upper() + word[1:] if word else '' for word in self.prov.get_title().split())
-        self.setWindowTitle(f'MV 1.6.2 | {new_title}, Chapter {self.prov.get_chapter()}')
+        self.setWindowTitle(f'MV 1.6.2a | {new_title}, Chapter {self.prov.get_chapter()}')
 
     def title_selector_helper(self, new_title):
         self.title_selector.setText(new_title)
@@ -1672,8 +1672,8 @@ class ManhwaViewer(QMainWindow):
             }
         """)
 
-    def update_theme(self):
-        self.theme = self.system.get_windows_theme() or "".lower()
+    def update_theme(self, new_theme):
+        self.theme = new_theme
         if int(self.system.get_os_version()[0:2]) <= 10:  # False 10 even on 11
             if self.theme == "light":
                 self.set_light_theme()
@@ -1681,9 +1681,12 @@ class ManhwaViewer(QMainWindow):
                 self.set_dark_theme()
 
     def timer_tick(self):
-        if not self.threading: self.update_content()
-        if random.randint(0, 20) == 0 and self.system.get_windows_theme() or "".lower() != self.theme:
-            self.update_theme()
+        if not self.threading:
+            self.update_content()
+        if random.randint(0, 20) == 0:
+            curr_theme = self.system.get_windows_theme() or os.environ.get('MV_THEME') or "light"
+            if curr_theme.lower() != self.theme:
+                self.update_theme(curr_theme.lower())
         # print("Update tick") # Debug
 
 
