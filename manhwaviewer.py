@@ -522,7 +522,8 @@ class ManhwaViewer(QMainWindow):
         self.system = System()
         self.theme = ""
 
-        if self.system.get_windows_theme().lower() != self.theme:
+        theme = self.system.get_windows_theme()
+        if type(theme) is str and theme.lower() != self.theme:
             self.update_theme()
 
         self.setWindowTitle('Manhwa Viewer 1.6.2')
@@ -1672,7 +1673,7 @@ class ManhwaViewer(QMainWindow):
         """)
 
     def update_theme(self):
-        self.theme = self.system.get_windows_theme().lower()
+        self.theme = self.system.get_windows_theme() or "".lower()
         if int(self.system.get_os_version()[0:2]) <= 10:  # False 10 even on 11
             if self.theme == "light":
                 self.set_light_theme()
@@ -1681,7 +1682,7 @@ class ManhwaViewer(QMainWindow):
 
     def timer_tick(self):
         if not self.threading: self.update_content()
-        if random.randint(0, 20) == 0 and self.system.get_windows_theme().lower() != self.theme:
+        if random.randint(0, 20) == 0 and self.system.get_windows_theme() or "".lower() != self.theme:
             self.update_theme()
         # print("Update tick") # Debug
 
