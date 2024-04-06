@@ -1,6 +1,6 @@
 # ManhwaViewer 1.6.2-dev
 
-If you want to use ManhwaViewer v1.6.2, just download the latest release at [ManhwaViewer 1.6.2](https://github.com/adalfarus/Manhwa-Viewer-1.6.2/releases).
+If you want to use ManhwaViewer v1.6.2, just download the latest release [here](https://github.com/adalfarus/Manhwa-Viewer-1.6.2/releases).
 
 ## For Users
 
