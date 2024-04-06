@@ -1,99 +1,120 @@
-# ManhwaViewer 1.6.2
- If you want to use ManhwaViewer v1.6.2, just download the latest release (https://github.com/adalfarus/Manhwa-Viewer-1.6.2/releases).
+# ManhwaViewer 1.6.2-dev
+
+If you want to use ManhwaViewer v1.6.2, just download the latest release at [ManhwaViewer 1.6.2](https://github.com/adalfarus/Manhwa-Viewer-1.6.2/releases).
 
 ## For Users
-Basics:
-- At the top is a search bar that can be lowered, if the current "Provider" cannot support search it will be grayed out.
-- The side menu includes all important features, but you won't be needing it much if you don't change stories often.
-- The optimal settings often are:
-    - Chapter rate set to 0.5 as loading a missing chapter often won't impact performance (turn this to 1.0 if you don't want extra chapters without story)
-    - Provider type: There is indirect and direct. Direct is either better or nessesary.
-    - The only other nessesary things are the scale buttons should be self-explainatory and the width just means the default width if no other sizing rules apply at the moment (The first images width is used if it isn't set).
-    - Options check-boxes Borderless, Hide Scrollbar, Stay On Top are mostly just window modifications and don't really impact the reading/viewing experience
-    - You can change your current provider at the Provider: dropdown at the relative top of the side menu. The included ones are (AsuraToon, CoffeManga, HariManga, MangaQueen (Can be slow) and ManhwaClan). More can be added through modding, any in the same "style" as ManhwaClan can be added by just specifing the website name, but they may not work due to additional security imposed by the website owner.
 
-To read anything type the relevant keywords into the search and double click the result you wish to read. This will automatically set the chapter to 1 and change the current title. If that doesn't happen you need to restart it once (bug). Otherwise you can try to manually enter the title into the Title: field in the side menu, but it could lead to errors.
+### Basics:
 
-Exporting chapters and reading them is not recommended as each chapter gets written to the same json file which is read whole everytime you switch chapters (Basically really bad performance).
--> Just ignore anything related to ManhwaFile and Exporting.
+- **Search Bar**: At the top, which can be lowered. It will be grayed out if the current "Provider" does not support search.
+- **Side Menu**: Contains all important features. It's less frequently used if you don't change stories often.
+- **Optimal Settings**:
+  - Chapter rate set to 0.5 (set to 1.0 if you don't want extra chapters without a story).
+  - Provider type: Choose between indirect and direct. Direct is generally better or necessary.
+  - Scale buttons and default width setting should be self-explanatory.
+  - Window modification options: Borderless, Hide Scrollbar, Stay On Top.
+  - Change your current provider using the "Provider" dropdown menu in the side menu. Included providers are AsuraToon, CoffeManga, HariManga, MangaQueen (can be slow), and ManhwaClan. Additional providers can be added through modding.
 
-This program takes a little bit 1-2 seconds to first load. After a chapter is finished loading the images are loaded while you can scroll, which I found better than another loading bar.
+To read, type relevant keywords into the search bar and double-click the desired result. Restart the program if the chapter and title don't update automatically. Manual entry of the title in the side menu is possible but can cause errors.
 
-Modding:
-Firstly: In order to mod you'll have to have at least a basic understanding of the Python Programming Language this programm is written in.
+**Note**: Exporting chapters is not recommended due to performance issues.
 
-Secondly: Locate your app-folder, for me that is: Right-Click on Shortcut or ManhwaViewer result in search and select "Open File location", done! The folder you're searching for is _internal in the explorer window that just opened and open the extensions folder, you can create a new file or add to an existing one. If you want to know anything in more detail you can roam in the _interal/modules/AutoProviderPlugin.py file.
+The program takes 1-2 seconds to load initially. Images are loaded while scrolling through a chapter, avoiding additional loading times.
 
-Thirdly: Modules aren't easy to come by, if you want to add any you can try just adding them to the _interal folder, but no garuntee that that will work. The modules that are included are everything the main program and the modules use (Just look, I won't list them all here, if you really need a module you can just add it's code to the file). You NEED to have two things for this to work. Add this line (from modules.AutoProviderPlugin import AutoProviderPlugin, AutoProviderBaseLike) at the top, it can be marked as an error, but that needs to be there. Then all actual extensions need to be a direct subclass of AutoProviderPlugin or AutoProviderBaseLike to be recognized as such.
+# Modding Guide for ManhwaViewer
 
-The python api/interface for extensions. We have two classes to make it easier for you to create extensions:
+## Introduction
+To mod ManhwaViewer, you need a basic understanding of Python, as the program is written in this language.
 
-	AutoProviderPlugin -> AutoProviderBaseLike
-	(For all extensions)  (Inherits from AutoProviderPlugin, for Manhwa websites like ManhwaClan, integrates everything easily)
+## Getting Started
+1. **Accessing the App Folder**:
+   - Right-click on the ManhwaViewer shortcut or search result.
+   - Select "Open File Location".
+   - Navigate to the `_internal` directory and then open the `extensions` folder.
+   - Here, you can either create a new file or modify an existing one.
+   - For detailed information, explore the `_interal/modules/AutoProviderPlugin.py` file.
 
-For a simple base-like you just need to subclass the AutoProviderBaseLike. Your init method needs to accept the parameters (title, chapter, chapter_rate, data_folder, cache_folder and provider). These will be gives to the Parent classes init call as the first parameters, after that you need (specific_provider_website (the website without ANYTHING else just "manhwaclan.com", no https, www or other), logo_path (is just where you want your logo, the default is "./data/{THEWEBSITENAME}Logo.{IMAGEFORMAT}"), logo_url_or_data (the logo url or a base64 string of the logo), logo_img_format, logo_img_type("url", or "base64"))
-AAAAnd your done! Restart the app and look for your provider, if you've done everything correctly it should show up, if something doesn't work look in the logs (./_internal/data/logs.txt).
+2. **Working with Packages**:
+   - Packages can be added to the `_interal/lib` folder (may need to be created), though compatibility isn't guaranteed.
+   - All standard libs have been included as a [pyinstaller option](https://stackoverflow.com/questions/62602954/force-pyinstaller-to-include-all-built-in-modules).
+   - Two key steps:
+     - Add `from modules.AutoProviderPlugin import AutoProviderPlugin, AutoProviderBaseLike` at the beginning of your code.
+     - Your extensions must be a subclass of either `AutoProviderPlugin` or `AutoProviderBaseLike`.
 
-For the more serious modders that want custom sites like AsuraToon to work you'll have to subclass the AutoProviderPlugin class instead. It accepts the same arguments as the other class as the init and passes as the first few arguments to the Parents init call. The other arguments are (specific_provider_website (same as for the other class) and logo_path (same as for the other class)). Next up is something that is "Good practice":
+## Creating Extensions
+1. **Using `AutoProviderPlugin` and `AutoProviderBaseLike` Classes**:
+   - `AutoProviderPlugin` is the base class for all extensions.
+   - `AutoProviderBaseLike` inherits from `AutoProviderPlugin` and is tailored for websites that use the same website-base as the ManhwaClan website.
 
-        if not os.path.isfile(os.path.join(data_folder, "AsuraToonLogo.png")):
-            try:
-                # Using base64 is better as it won't matter if the url is ever changed, otherwise pass the url and
-                # img_type="url"
-                self._download_logo_image(
-                    'data:image/png;base64,iVBOR...',
-                    "AsuraToonLogo", img_format='png', img_type="base64")
-            except Exception as e:
-                print(f"An error occurred {e}")
-                return
+2. **Implementing a Simple Base-like Extension**:
+   - Subclass `AutoProviderBaseLike`.
+   - Your `__init__` method should accept the parameters (`title`, `chapter`, `chapter_rate`, `data_folder`, `cache_folder`, `provider`).
+   - Pass these parameters along with the website you've chosen as **specific_provider_website** (only the core url, so from `https://www.manhwaclan.com` -> `manhwaclan.com`).
+   - Restart the app to see your provider and test it out. Check the logs at **./_internal/data/logs.txt** for errors even if everything seems to work fine.
 
-This tries to download the logo image to the specified path if it doesn't exist already and if there is an error (e.g. the image location on the website has changed) there won't be an error that causes the program to crash :) How nice is that.
+3. **Creating Custom Site Extensions (Advanced)**:
+   - Subclass `AutoProviderPlugin`.
+   - Follow similar steps as Base-like extensions, but include additional error handling for logo downloads as any uncaught exception will crash the program.
 
-The internal variables will be listed here:
-        self.title = title  # Current Manhwa title
-        self.url_title = self.urlify(title)
-        self.chapter = None  # Current chapter, float if decimal, int if whole
-        self.chapter_str = None  # String of chapter
-        self.chap(chapter)  # Changes the chapter and chapter string variables
-        self.chapter_rate = chapter_rate  # float
-        self.data_folder = data_folder  # Data folder path (Doesn't really play a role for you)
-        self.cache_folder = cache_folder  # Cache folder path (Doesn't really play a role for you)
-        self.provider = provider  # The current provider is either "indirect" or "direct" (I removed all search engines as they made problems and weren't very useful)
-        self.specific_provider_website = specific_provider_website  # Whatever you passed it in the parents init call
-        self.logo_path = logo_path  # Whatever you passed it in the parents init call
-        self.blacklisted_websites = [
-            "247manga.com",
-            "ww6.mangakakalot.tv",
-            "jimanga.com",
-            "mangapure.net",
-            "mangareader.mobi",
-            "onepiece.fandom.com"
-        ]  # The default blacklisted websites, doesn't matter anymore as search engines are banned anyways
-        self.current_url = None  # The current chapter url.
+## Important Methods and Variables
+- Internal Variables: 
+  - `title` -- The current Manhwa Title
+  - `url_title` -- The current Manhwa Title, made url safe
+  - `chapter` -- The current chapter, integer if it's whole and float if it's decimal.
+  - `chapter_str` -- A string of the current chapter
+  - `chapter_rate` -- Float
+  - `data_folder` & `chache_folder` -- Not really used for modding
+  - `provider` -- The current provider as a string, can either be "indirect" or "direct"
+  - `specific_provider_website` -- Whatever you passed to the parents init call
+  - `blacklisted_websites` -- Was used for search engine provider
+  - `current_url` -- Holds the current chapter url
 
-Next up I'll explain the important methods and what they do:
-	- validate_image -- Decides which downloaded images are seen as "Chapter Images" and get converted to png. (The Program only loads pngs when loading a chapter) --> Gets image which is the a string like so "image003.png", returns None, None, None if invalid and file_name (it's name, here "image003"), file_extension (the file extension, gets converted to png, here "png"), new_name (what it should be named, e.g. "003" for simplicity)
-	- _indirect_provider -- What the indirect provider finds (this should guess based on the current chapter and title), returns a url to the currently selected chapter as a string --> Uses class attributes
-	- _direct_provider -- What the direct provider finds (this should use search), returns a url to the currently selected chapter as a string --> Uses class attributes
-	- get_search_results -- Returns a List[title, empty_string] of search results from the search feature, return False if not implemented. --> Takes in text (The search text)
+### Key Methods Overview
+Understanding these methods is crucial for successful modding. They play a vital role in how the application processes images and retrieves chapter URLs.
 
-That's it, it's recommended to implement a general _search methods to make it easier to support both get_search_results and _direct_provider. Also, don't mess with the other methods, as it could crash the program. You can implement any helper methods you want, but don't use any of these names (__init__, urlify, get_logo_path, set_title, get_title, set_chapter, get_chapter, set_chapter_rate, get_chapter_rate, set_provider, get_provider, set_current_url, get_current_url, set_blacklisted_websites, get_blacklisted_websites, chap, next_chapter, previous_chapter, reload_chapter, _handle_cache_result, _download_logo_image, redo_prep, update_current_url, _get_current_chapter_url, _get_url, _google_provider, _duckduckgo_provider, _bing_provider, _indirect_provider, _direct_provider, get_search_results, _empty_cache, _download_image, download_images, validate_image, process_images, callback, cache_current_chapter).
+#### 1. `validate_image`
+- **Purpose**: Determines which downloaded images qualify as "Chapter Images" for conversion to PNG (as the program only loads PNGs for chapters).
+- **Input**: Receives a string representing an image file (e.g., `"image003.png"`).
+- **Output**:
+  - Returns `None, None, None` if the image is invalid.
+  - Returns `file_name` (original name), `file_extension` (original extension), and `new_name` (simplified name for internal use) for valid images.
 
-Also if you don't want to look the non-standard libraries that are included are:
+#### 2. `_indirect_provider`
+- **Purpose**: Finds the URL for the currently selected chapter based on the current chapter and title. It's an estimation method.
+- **Output**: Returns the chapter URL as a string.
+- **Behavior**: Utilizes class attributes for its operation.
 
-- aplustools==0.1.4.2  # Newer versions had image download speed issues and I'm not touching that again.
-- beautifulsoup4==4.12.2
-- duckduckgo_search==3.9.6
-- Pillow==10.1.0  # There are exploits but only for programmers or modders. --> (https://security.snyk.io/vuln/SNYK-PYTHON-PILLOW-6182918) and (https://security.snyk.io/vuln/SNYK-PYTHON-PILLOW-6514866)
-- PySide6==6.6.0
-- Requests==2.31.0
-- urllib3==2.1.0
+#### 3. `_direct_provider`
+- **Purpose**: Similar to `_indirect_provider`, but designed to actively search for the chapter URL.
+- **Output**: Returns the chapter URL as a string.
+- **Behavior**: Leverages class attributes and a search mechanism.
+
+#### 4. `get_search_results`
+- **Purpose**: Provides search results, primarily used by the search feature of the application.
+- **Input**: Takes in a search query as text.
+- **Output**: Returns a list in the format `[title, empty_string]`. Should return `False` if the method is not implemented.
+
+### Implementation Recommendations
+- Implement a general `_search` method to streamline support for both `get_search_results` and `_direct_provider`.
+- Avoid altering other methods to prevent application crashes.
+- Custom helper methods can be created, but refrain from using specific reserved method names (listed above).
+
+## Guidelines and Libraries
+- Avoid modifying certain methods to prevent crashes.
+- Helper methods can be implemented, but avoid any already used names (`__init__`, `urlify`, `get_logo_path`, `set_title`, `get_title`, `set_chapter`, `get_chapter`, `set_chapter_rate`, `get_chapter_rate`, `set_provider`, `get_provider`, `set_current_url`, `get_current_url`, `set_blacklisted_websites`, `get_blacklisted_websites`, `chap`, `next_chapter`, `previous_chapter`, `reload_chapter`, `_handle_cache_result`, `_download_logo_image`, `redo_prep`, `update_current_url`, `_get_current_chapter_url`, `_get_url`, `_google_provider`, `_duckduckgo_provider`, `_bing_provider`, `_indirect_provider`, `_direct_provider`, `get_search_results`, `_empty_cache`, `_download_image`, `download_images`, `validate_image`, `process_images`, `callback`, `cache_current_chapter`).
+- Included non-standard libraries:
+  - `aplustools==0.1.4.2`
+  - `beautifulsoup4==4.12.2`
+  - `duckduckgo_search==3.9.6`
+  - `Pillow==10.1.0` (Note potential security issues)
+  - `PySide6==6.6.0`
+  - `Requests==2.31.0`
+  - `urllib3==2.1.0`
 
 To compatabilty: 
 - Windows 7 and lower are missing important files
 - Windows 10-2004 has a different dark mode reg key (can be fixed).
 - All other Windows versions should work.
-
 
 ## For Programmers
 
@@ -101,4 +122,7 @@ To compatabilty:
 There is a small bug, where the title doesn't update internally and you need to restart the program. There also is a bug where the task window keeps popping up if the task failed and you close it too quickly, so either wait a bit before clicking the close button or stop the app with the task manager and start it again.
 
 ### Compatibility
-Currently the program works for Windows 10-2004 to 11-23H2, but I could make it so it works entirely on Windows 10 and 11, just Windows 7 and lower will never work. Linux and Mac would need more modification but are also okay, just that I wouldn't be able to easily test them.
+- Windows 7 and lower are missing important dll files
+- Windows 10-2004 has a different dark mode reg key (can be fixed).
+- All other Windows versions should work.
+Linux and Mac would need more modification but are also okay, just that I wouldn't be able to easily test them.
