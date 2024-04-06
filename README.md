@@ -112,7 +112,7 @@ Understanding these methods is crucial for successful modding. They play a vital
   - `urllib3==2.1.0`
 
 To compatabilty: 
-- Windows XP and lower are missing important files
+- Windows Vista and lower are missing important files
 - Windows 10-2004 has a different dark mode reg key (you need to set the environment variable to change themes).
 - All other Windows versions should work without problems.
 
