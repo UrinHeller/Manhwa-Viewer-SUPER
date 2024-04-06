@@ -440,7 +440,7 @@ class ManhwaViewer(QMainWindow):
                 if release["versionNumber"] == newest_version:
                     newest_version_data = release
             push = newest_version_data["push"].title() == "True"
-            current_version = "1.6.2a"
+            current_version = "1.6.3"
             found_version = None
 
             # Find a version bigger than the current version and prioritize versions with push
@@ -537,7 +537,7 @@ class ManhwaViewer(QMainWindow):
         if theme.lower() != self.theme:
             self.update_theme(theme.lower())
 
-        self.setWindowTitle('Manhwa Viewer 1.6.2a')
+        self.setWindowTitle('Manhwa Viewer 1.6.3')
         self.setWindowIcon(QIcon(f'{self.data_folder}Untitled-1-noBackground.png'))
 
         db_path = f"{self.data_folder}data.db"
@@ -887,7 +887,7 @@ class ManhwaViewer(QMainWindow):
 
     def reload_window_title(self):
         new_title = ' '.join(word[0].upper() + word[1:] if word else '' for word in self.prov.get_title().split())
-        self.setWindowTitle(f'MV 1.6.2a | {new_title}, Chapter {self.prov.get_chapter()}')
+        self.setWindowTitle(f'MV 1.6.3 | {new_title}, Chapter {self.prov.get_chapter()}')
 
     def title_selector_helper(self, new_title):
         self.title_selector.setText(new_title)
