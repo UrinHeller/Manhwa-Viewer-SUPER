@@ -1,3 +1,5 @@
+import config
+
 from PySide6.QtWidgets import (QApplication, QLabel, QVBoxLayout, QScrollArea, QWidget, QMainWindow, QCheckBox,
                                QHBoxLayout, QScroller, QSpinBox, QPushButton, QGraphicsOpacityEffect,
                                QScrollerProperties, QFrame, QComboBox, QFormLayout, QLineEdit, QRadioButton, QDialog,
@@ -30,6 +32,9 @@ import time
 import sys
 import os
 import multiprocessing
+
+import stdlib_list
+hiddenimports = list(stdlib_list.stdlib_list())
 
 set_working_dir_to_main_script_location()
 multiprocessing.freeze_support()
@@ -203,7 +208,7 @@ class Settings:
             "blacklisted_websites": "247manga.com, ww6.mangakakalot.tv, jimanga.com, mangapure.net, mangareader.mobi, onepiece.fandom.com, mangaowl.io",
             "export_settings": "",
             "auto_export": "False",
-            "provider_type": "indirect",
+            "provider_type": "direct",
             "chapter_rate": "0.5",
             "no_update_info": "True",
             "update_info": "True",
@@ -625,6 +630,16 @@ class ManhwaViewer(QMainWindow):
         self.update_content()
         QTimer.singleShot(50, self.set_scroll_positions)
 
+        self.plugin_radio_button_file.setEnabled(False)
+        self.file_label.setEnabled(False)
+        self.file_lineEdit.setEnabled(False)
+        self.fileLocationToolButton.setEnabled(False)
+        self.blacklist_button.setEnabled(False)
+        self.invisible_background_checkbox.setEnabled(False)
+        self.auto_export_checkbox.setEnabled(False)
+        self.export_button.setEnabled(False)
+        self.export_settings_button.setEnabled(False)
+
     def setupUi(self):
         # Central Widget
         self.central_widget = QWidget()
@@ -803,7 +818,7 @@ class ManhwaViewer(QMainWindow):
 
         # Checkboxes
         self.borderless_checkbox = QCheckBox('Borderless')
-        self.invisible_background_checkbox = QCheckBox('Invisible W.I.P')
+        self.invisible_background_checkbox = QCheckBox('Invisible Back')
         self.side_menu_layout.addRow(self.borderless_checkbox, self.invisible_background_checkbox)
         self.hide_scrollbar_checkbox = QCheckBox('Hide Scrollbar')
         self.stay_on_top_checkbox = QCheckBox('Stay on top')
@@ -1056,6 +1071,7 @@ class ManhwaViewer(QMainWindow):
             event.ignore()
 
     def onRadioBtnToggled(self, no_change=False):
+        return
         if self.plugin_radio_button_file.isChecked():
             self.prov = ManhwaFilePlugin(self.settings.get_chapter(), self.settings.get_file_path(), self.data_folder,
                                          self.cache_folder)
