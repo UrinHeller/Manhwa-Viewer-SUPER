@@ -415,7 +415,18 @@ class Settings:
 class ManhwaViewer(QMainWindow):
     def __init__(self, parent=None):
         def check_for_update():
-            response = requests.get("https://raw.githubusercontent.com/adalfarus/update_check/main/mv/update.json")
+            try:
+                response = requests.get("https://raw.githubusercontent.com/adalfarus/update_check/main/mv/update.json")
+            except Exception as e:
+                title = "Info"
+                text = "There was an error when checking for updates."
+                description = f"{e}"
+                msg_box = AdvancedQMessageBox(self, QMessageBox.Icon.Information, title, text, description,
+                                              standardButtons=QMessageBox.StandardButton.Ok,
+                                              defaultButton=QMessageBox.StandardButton.Ok)
+
+                msg_box.exec()
+                return
             try:
                 update_json = response.json()
             except (requests.exceptions.RequestException, requests.exceptions.JSONDecodeError, ValueError) as e:
