@@ -115,7 +115,7 @@ Understanding these methods is crucial for successful modding. They play a vital
 
 To compatabilty: 
 - Windows Vista and lower are untested
-- Windows 10-2004 has a different dark mode reg key (you need to set the environment variable to change themes).
+- Windows 10-1703 has a different dark mode reg key (you need to set the environment variable to change themes).
 - All other Windows versions should work without problems.
 
 ## For Programmers
@@ -124,6 +124,6 @@ To compatabilty:
 There is a small bug, where the title doesn't update internally and you need to restart the program. There also is a bug where the task window keeps popping up if the task failed and you close it too quickly, so either wait a bit before clicking the close button or stop the app with the task manager and start it again.
 
 ### Compatibility
-- Windows 10-2004 has a different dark mode reg key (you need to set the environment variable to change themes).
+- Windows 10-1703 has a different dark mode reg key (you need to set the environment variable to change themes).
 - All other Windows versions should work without problems.
 Linux and Mac would need more modification but are also okay, just that I wouldn't be able to easily test them.
