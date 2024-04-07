@@ -24,7 +24,7 @@ The program takes 1-2 seconds to load initially. Images are loaded while scrolli
 # Modding Guide for ManhwaViewer
 
 ## Introduction
-To mod ManhwaViewer, you need a basic understanding of Python, as the program is written in this language.
+To mod ManhwaViewer, you need a basic understanding of Python, as the program is written in this language. The windows 7 version runs on [CPython 3.10 by NulAsh](https://github.com/NulAsh/cpython/releases/tag/v3.10.1win7-1) with [PySide2](https://pypi.org/project/PySide2/) and the windows 10-11 version runs on Python 3.12 with [PySide6](https://pypi.org/project/PySide6/). All standard libraries are included.
 
 ## Getting Started
 1. **Accessing the App Folder**:
@@ -35,7 +35,7 @@ To mod ManhwaViewer, you need a basic understanding of Python, as the program is
    - For detailed information, explore the `_interal/modules/AutoProviderPlugin.py` file.
 
 2. **Working with Packages**:
-   - Packages can be added to the `_interal/lib` folder (may need to be created), though compatibility isn't guaranteed.
+   - Packages can be added to the `_interal/libs` folder, this location is the first python will check so you can overwrite packages.
    - All standard libs have been included as a [pyinstaller option](https://stackoverflow.com/questions/62602954/force-pyinstaller-to-include-all-built-in-modules).
    - Two key steps:
      - Add `from modules.AutoProviderPlugin import AutoProviderPlugin, AutoProviderBaseLike` at the beginning of your code.
@@ -106,13 +106,15 @@ Understanding these methods is crucial for successful modding. They play a vital
   - `aplustools==0.1.4.2`
   - `beautifulsoup4==4.12.2`
   - `duckduckgo_search==3.9.6`
-  - `Pillow==10.1.0` (Note potential security issues)
+  - `Pillow==10.3.0`
   - `PySide6==6.6.0`
   - `Requests==2.31.0`
   - `urllib3==2.1.0`
+  - `packaging==24.0`
+  - `stdlib-list==0.10.0`
 
 To compatabilty: 
-- Windows Vista and lower are missing important files
+- Windows Vista and lower are untested
 - Windows 10-2004 has a different dark mode reg key (you need to set the environment variable to change themes).
 - All other Windows versions should work without problems.
 
