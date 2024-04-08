@@ -412,6 +412,18 @@ class Settings:
             self.db.update_info((key, value), "settings", ["key", "value"])
 
 
+class SmoothScrollArea(QScrollArea):
+    def __init__(self, parent=None):
+        super(SmoothScrollArea, self).__init__(parent)
+
+    def wheelEvent(self, event):
+        steps = event.angleDelta().y() / 120  # Each step is usually 15 degrees, so divide by 120
+        single_step = self.verticalScrollBar().singleStep()
+        for _ in range(int(abs(steps))):
+            scroll_amount = single_step if steps > 0 else -single_step
+            self.verticalScrollBar().setValue(self.verticalScrollBar().value() - scroll_amount)
+
+
 class ManhwaViewer(QMainWindow):
     def __init__(self, parent=None):
         def check_for_update():
@@ -440,7 +452,7 @@ class ManhwaViewer(QMainWindow):
                 if release["versionNumber"] == newest_version:
                     newest_version_data = release
             push = newest_version_data["push"].title() == "True"
-            current_version = "1.6.3"
+            current_version = "1.6.4"
             found_version = None
 
             # Find a version bigger than the current version and prioritize versions with push
@@ -537,7 +549,7 @@ class ManhwaViewer(QMainWindow):
         if theme.lower() != self.theme:
             self.update_theme(theme.lower())
 
-        self.setWindowTitle('Manhwa Viewer 1.6.3')
+        self.setWindowTitle('Manhwa Viewer 1.6.4')
         self.setWindowIcon(QIcon(f'{self.data_folder}Untitled-1-noBackground.png'))
 
         db_path = f"{self.data_folder}data.db"
@@ -659,14 +671,16 @@ class ManhwaViewer(QMainWindow):
         self.main_layout = QVBoxLayout(self.central_widget)
 
         # Scroll Area
-        self.scroll_area = QScrollArea()
+        self.scroll_area = SmoothScrollArea()
         self.scroll_area.setWidgetResizable(True)
-        self.scroll_area.verticalScrollBar().setSingleStep(30)
+        self.scroll_area.verticalScrollBar().setSingleStep(60)
         self.main_layout.addWidget(self.scroll_area)
 
         # Enable kinetic scrolling
         self.scroller = QScroller.scroller(self.scroll_area.viewport())
         self.scroller.grabGesture(self.scroll_area.viewport(), QScroller.ScrollerGestureType.TouchGesture)
+        # Additionally, grabbing left mouse button gestures
+        # QScroller.grabGesture(self.scroll_area.viewport(), QScroller.ScrollerGestureType.LeftMouseButtonGesture)
         self.scroller_props = self.scroller.scrollerProperties()
         new_props = QScrollerProperties(self.scroller_props)
         new_props.setScrollMetric(QScrollerProperties.ScrollMetric.MaximumVelocity, 0.3)
@@ -887,7 +901,7 @@ class ManhwaViewer(QMainWindow):
 
     def reload_window_title(self):
         new_title = ' '.join(word[0].upper() + word[1:] if word else '' for word in self.prov.get_title().split())
-        self.setWindowTitle(f'MV 1.6.3 | {new_title}, Chapter {self.prov.get_chapter()}')
+        self.setWindowTitle(f'MV 1.6.4 | {new_title}, Chapter {self.prov.get_chapter()}')
 
     def title_selector_helper(self, new_title):
         self.title_selector.setText(new_title)

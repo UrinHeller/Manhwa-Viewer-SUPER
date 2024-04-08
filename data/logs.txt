@@ -39,3 +39,87 @@
 [2024-04-06 07:32:19] Exiting ...
 [2024-04-06 07:32:30] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x000001BFB27A96D0> Loading:  Chapter 1
 [2024-04-06 07:33:23] Exiting ...
+[2024-04-07 12:44:29] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x0000013CBB10C740> Loading:  Chapter 1
+[2024-04-07 12:44:37] Selected: Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family
+[2024-04-07 12:44:37] Updating current URL...
+[2024-04-07 12:44:39] Found URL:https://manhwaclan.com/manga/becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family/chapter-1/
+[2024-04-07 12:44:39] Current URL set to: https://manhwaclan.com/manga/becoming-the-swordmaster-rank-young-lord-of-the-sichuan-tang-family/chapter-1/
+[2024-04-07 12:44:41] Downloaded image Logo_230.png.
+[2024-04-07 12:44:42] Downloaded image 03.jpg.
+[2024-04-07 12:44:42] Downloaded image 04.jpg.
+[2024-04-07 12:44:42] Downloaded image 10.jpg.
+[2024-04-07 12:44:42] Downloaded image 06.jpg.
+[2024-04-07 12:44:43] Downloaded image 08.jpg.
+[2024-04-07 12:44:43] Downloaded image 09.jpg.
+[2024-04-07 12:44:43] Downloaded image 05.jpg.
+[2024-04-07 12:44:43] Downloaded image 07.jpg.
+[2024-04-07 12:44:43] Downloaded image 11.jpg.
+[2024-04-07 12:44:43] Renamed a file.
+[2024-04-07 12:44:43] Downloaded image 12.jpg.
+[2024-04-07 12:44:43] Renamed a file.
+[2024-04-07 12:44:43] Renamed a file.
+[2024-04-07 12:44:44] Renamed a file.
+[2024-04-07 12:44:44] Renamed a file.
+[2024-04-07 12:44:44] Renamed a file.
+[2024-04-07 12:44:45] Downloaded image 14.jpg.
+[2024-04-07 12:44:45] Downloaded image 15.jpg.
+[2024-04-07 12:44:45] Renamed a file.
+[2024-04-07 12:44:45] Renamed a file.
+[2024-04-07 12:44:45] Downloaded image 18.jpg.
+[2024-04-07 12:44:45] Downloaded image 19.jpg.
+[2024-04-07 12:44:45] Downloaded image 16.jpg.
+[2024-04-07 12:44:45] Renamed a file.
+[2024-04-07 12:44:45] Downloaded image 17.jpg.
+[2024-04-07 12:44:45] Downloaded image 20.jpg.
+[2024-04-07 12:44:45] Downloaded image 13.jpg.
+[2024-04-07 12:44:45] Renamed a file.
+[2024-04-07 12:44:45] Downloaded image 21.jpg.
+[2024-04-07 12:44:46] Renamed a file.
+[2024-04-07 12:44:46] Downloaded image 26.jpg.
+[2024-04-07 12:44:46] Renamed a file.
+[2024-04-07 12:44:46] Downloaded image 22.jpg.
+[2024-04-07 12:44:46] Downloaded image 2ab4993c6e3723bea885d41de9d432fc.
+[2024-04-07 12:44:46] Renamed a file.
+[2024-04-07 12:44:46] Downloaded image d77207a74be0175b890fa4d0faad9d24.
+[2024-04-07 12:44:46] Downloaded image 29a7712be4f6b47ef45b043ba7e0f1c9.
+[2024-04-07 12:44:46] Renamed a file.
+[2024-04-07 12:44:47] Renamed a file.
+[2024-04-07 12:44:47] Renamed a file.
+[2024-04-07 12:44:47] Renamed a file.
+[2024-04-07 12:44:47] Renamed a file.
+[2024-04-07 12:44:47] Renamed a file.
+[2024-04-07 12:44:47] Downloaded image 24.jpg.
+[2024-04-07 12:44:48] Renamed a file.
+[2024-04-07 12:44:48] Renamed a file.
+[2024-04-07 12:44:48] Downloaded image 25.jpg.
+[2024-04-07 12:44:48] Downloaded image 23.jpg.
+[2024-04-07 12:44:48] 28 images downloaded!
+[2024-04-07 12:44:48] Renamed a file.
+[2024-04-07 12:44:49] Renamed a file.
+[2024-04-07 12:44:49] Renamed a file.
+[2024-04-07 12:44:49] Cache current chapter done, returning now
+[2024-04-07 12:44:49] Download Thread alive: False Provess Thread alive: False
+[2024-04-07 12:44:49] Handle cache result done, returning now ...
+[2024-04-07 12:44:49] Worker thread died. Emitting result now ...
+[2024-04-07 12:44:49] Task completed method called.
+[2024-04-07 12:44:49] Task completed successfully! Result:Not finished
+[2024-04-07 12:44:50] Reloading images...
+[2024-04-07 12:45:14] Exiting ...
+[2024-04-07 12:45:19] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x000001D604F5B620> Loading: Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family Chapter 1
+[2024-04-07 12:45:27] Exiting ...
+[2024-04-07 12:47:44] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x00000166C6EC4950> Loading: Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family Chapter 1
+[2024-04-07 12:48:43] Exiting ...
+[2024-04-07 12:49:12] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x00000228D2A3CF20> Loading: Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family Chapter 1
+[2024-04-07 12:49:21] Exiting ...
+[2024-04-07 12:49:29] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x00000257203ADE20> Loading: Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family Chapter 1
+[2024-04-07 12:49:36] Exiting ...
+[2024-04-07 12:50:50] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x000001D37F9DB0B0> Loading: Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family Chapter 1
+[2024-04-07 12:51:01] Exiting ...
+[2024-04-07 12:51:15] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x000002245C89B620> Loading: Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family Chapter 1
+[2024-04-07 12:51:33] Exiting ...
+[2024-04-07 12:51:36] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x000001E40168F440> Loading: Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family Chapter 1
+[2024-04-07 12:51:48] Exiting ...
+[2024-04-07 12:51:53] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x000001128BD230B0> Loading: Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family Chapter 1
+[2024-04-07 12:52:04] Exiting ...
+[2024-04-07 12:52:11] <extra_autoproviders.AutoProviderPluginManhwaClan object at 0x000002CFE1C4EFF0> Loading: Becoming the Swordmaster Rank Young Lord of the Sichuan Tang Family Chapter 1
+[2024-04-07 12:52:23] Exiting ...
